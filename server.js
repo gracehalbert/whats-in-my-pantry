@@ -22,7 +22,7 @@ var Item = mongoose.model('Item', {
 });
 
 app.get('/', function(req, res) {
-  res.send('hello world');
+  res.send('/client/index.html');
 })
 
 // app.get('/api/items', function(req, res) {
