@@ -2,14 +2,20 @@
 <html>
 
   <head>
-
+    <script src="app.js"></script>
   </head>
 
   <body>
     <h1>What's in My Pantry</h1>
-    <a href="#/login">Log In</a>
+    <a href="/login">Log In</a>
     <br />
-    <a href="#/signup">Signup</a>
+    <a href="/signup">Signup</a>
+
+    <div ng-view></div>
+
+    <script src="lib/angular/angular.js"></script>
+    <script src="lib/angular-route/angular-route.js"></script>
+
   </body>
 
 </html>
