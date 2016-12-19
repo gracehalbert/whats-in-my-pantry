@@ -2,7 +2,7 @@
   "name": "whats-in-my-pantry",
   "version": "0.0.0",
   "description": "MEAN stack pantry inventory app",
-  /*"main": "server.js",*/
+  "main": "server.js",
   "dependencies": {
     "body-parser": "^1.4.3",
     "express": "^4.13.4",
