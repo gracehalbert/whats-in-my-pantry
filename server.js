@@ -21,6 +21,10 @@ var Item = mongoose.model('Item', {
   text: String
 });
 
+app.get('/', function(req, res) {
+  res.send('hello world');
+})
+
 // app.get('/api/items', function(req, res) {
 //   Item.find(function(err, items) {
 //     if (err) { res.send(err); }
