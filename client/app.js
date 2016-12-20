@@ -18,7 +18,7 @@ angular.module('pantry', [
     })
     .otherwise({redirectTo: '/index'});
   $httpProvider.interceptors.push('AttachTokens');
-});
+})
 .run(function ($rootScope, $location, Auth) {
   // here inside the run phase of angular, our services and controllers
   // have just been registered and our app is ready
@@ -34,3 +34,5 @@ angular.module('pantry', [
     // }
   });
 });
+
+console.log('app connecting');

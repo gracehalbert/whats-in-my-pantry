@@ -16,14 +16,24 @@ app.use(bodyParser.urlencoded({'extended': 'true'}));
 app.use(bodyParser.json());
 app.use(bodyParser.json({type: 'application/vnd.api+json'}));
 app.use(methodOverride());
+app.use(express.static('client'));
 
 var Item = mongoose.model('Item', {
   text: String
 });
 
 app.get('/', function(req, res) {
-  res.redirect('/client/index.html');
-})
+  res.send('hello world');
+});
+
+app.get('/login', function(req, res) {
+  console.log('node login redirect');
+  res.render('login.html');
+});
+
+app.get('*', function(req, res) {
+  res.render('index');
+});
 
 // app.get('/api/items', function(req, res) {
 //   Item.find(function(err, items) {

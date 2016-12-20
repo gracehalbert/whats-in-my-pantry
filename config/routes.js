@@ -8,7 +8,7 @@ var isLoggedIn = function() {};
 
 
 app.get('/', isLoggedIn, function(req, res, next) {
-  res.render('/client/index')
+  res.render('/client/index');
 });
 
 app.get('/login', function(req, res) {
