@@ -1,0 +1,48 @@
+<html ng-app="pantryList">
+
+  <head>
+
+    <meta charset="utf-8" />
+    <title>What's in My Pantry</title>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><!-- load jquery -->
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script><!-- load angular -->
+    <script src="core.js"></script>
+
+  </head>
+
+  <body ng-controller="pantryController">
+
+    <div class="container">
+      <h1>Items in My Pantry</h1>
+    </div>
+
+    <div id="grocery-form">
+      <form>
+        <div class="form-group">
+          <input type="text" placeholder="Grocery Item" ng-model="formData.text" required/>
+          <input type="number" placeholder="Size" ng-model="formData.size" />
+          <input type="number" placeholder="Quantity" ng-model="formData.quantity" required/>
+          <input type="date" placeholder="Purchase Date" ng-model="formData.purchase" />
+          <input type="date" placeholder="Expiration Date" ng-model="formData.expiration" />
+        </div>
+        <button type="submit" ng-click="createGrocery()">Add</button>
+      </form>
+    </div>
+  </body>
+
+    <div id="pantry-list">
+      <table>
+        <tr ng-repeat="grocery in groceries">
+          <td>{{ grocery.text }}</td>
+          <td>{{ grocery.size }}</td>
+          <td>{{ grocery.quantity }}</td>
+          <td>{{ grocery.purchase }}</td>
+          <td>{{ grocery.expiration }}</td>
+        </tr>
+      </table>
+    </div>
+
+
+
+</html>
