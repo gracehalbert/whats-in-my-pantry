@@ -11,6 +11,10 @@ module.exports = function(app) {
   app.post('/api/groceries', function(req, res) {
     Grocery.create({
       text: req.body.text,
+      size: req.body.size,
+      quantity: req.body.quantity,
+      purchase: req.body.purchase,
+      expiration: req.body.expiration
     }, function(err, todo) {
       if (err) { res.send(err); }
       Grocery.find(function(err, groceries) {

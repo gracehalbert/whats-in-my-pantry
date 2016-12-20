@@ -4,7 +4,7 @@ var mongoose = require('mongoose');
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
-var uri = process.env.MONGODB_URI;
+var uri = process.env.MONGODB_URI || 'mongodb://localhost/pantrydb';
 var port = process.env.PORT || 3000;
 
 mongoose.connect(uri);
@@ -20,5 +20,3 @@ require('./app/routes.js')(app);
 
 app.listen(port);
 console.log('App listening on port ' + port);
-
-// || 'mongodb://localhost/pantrydb'

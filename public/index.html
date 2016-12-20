@@ -5,6 +5,14 @@
     <meta charset="utf-8" />
     <title>What's in My Pantry</title>
 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+      <style>
+        #grocery-form              { margin-left:75px;
+                                    margin-right:150px }
+        #pantry-list                { margin-left:25px;
+                                    margin-right:75px }
+        #add-item                  { margin-left:175px }
+      </style>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><!-- load jquery -->
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script><!-- load angular -->
     <script src="core.js"></script>
@@ -18,27 +26,59 @@
     </div>
 
     <div id="grocery-form">
-      <form>
+      <form class="form-horizontal">
         <div class="form-group">
-          <input type="text" placeholder="Grocery Item" ng-model="formData.text" required/>
-          <input type="number" placeholder="Size" ng-model="formData.size" />
-          <input type="number" placeholder="Quantity" ng-model="formData.quantity" required/>
-          <input type="date" placeholder="Purchase Date" ng-model="formData.purchase" />
-          <input type="date" placeholder="Expiration Date" ng-model="formData.expiration" />
+          <label for="groceryItem" class="col-sm-2 control-label">Grocery Item</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="groceryItem" placeholder="Item" ng-model="formData.text" required >
+            </div>
+          <label for="size" class="col-sm-2 control-label">Size</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="size" placeholder="Size" ng-model="formData.size" required >
+            </div>
+          <label for="quantity" class="col-sm-2 control-label">Quantity</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="quantity" placeholder="Quantity" ng-model="formData.quantity" required >
+            </div>
+          <label for="purchaseDate" class="col-sm-2 control-label">Purchase Date</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="purchaseDate" placeholder="Purchase Date" ng-model="formData.purchase" required >
+            </div>
+          <label for="expirationm" class="col-sm-2 control-label">Expiration Date</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="expiration" placeholder="Expiration" ng-model="formData.expiration" required >
+            </div>
         </div>
-        <button type="submit" ng-click="createGrocery()">Add</button>
+        <button id="add-item" type="submit" ng-click="createGrocery()">Add</button>
       </form>
     </div>
   </body>
 
     <div id="pantry-list">
-      <table>
+      <table class="table table-bordered">
+        <tr>
+          <th>
+            Item
+          </th>
+          <th>
+            Size
+          </th>
+          <th>
+            Quantity
+          </th>
+          <th>
+            Purchase Date
+          </th>
+          <th>
+            Expiration Date
+          </th>
+        </tr>
         <tr ng-repeat="grocery in groceries">
           <td>{{ grocery.text }}</td>
           <td>{{ grocery.size }}</td>
           <td>{{ grocery.quantity }}</td>
-          <td>{{ grocery.purchase }}</td>
-          <td>{{ grocery.expiration }}</td>
+          <td>{{ grocery.purchase | date: format: short}}</td>
+          <td>{{ grocery.expiration | date: format: short }}</td>
         </tr>
       </table>
     </div>

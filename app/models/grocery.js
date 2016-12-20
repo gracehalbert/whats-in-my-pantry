@@ -2,8 +2,8 @@ var mongoose = require('mongoose');
 
 module.exports = mongoose.model('Grocery', {
   text: String,
-  size: Number,
+  size: String,
   quantity: Number,
-  puchase: Date,
+  purchase: Date,
   expiration: Date
 });
