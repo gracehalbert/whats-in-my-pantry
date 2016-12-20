@@ -9,7 +9,8 @@
       <style>
         #grocery-form              { margin-left:75px;
                                     margin-right:150px }
-        #pantry-list                { margin-left:25px;
+        #pantry-list                { table-layout: fixed;
+                                    margin-left:25px;
                                     margin-right:75px }
         #add-item                  { margin-left:175px }
       </style>
@@ -42,11 +43,11 @@
             </div>
           <label for="purchaseDate" class="col-sm-2 control-label">Purchase Date</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" id="purchaseDate" placeholder="Purchase Date" ng-model="formData.purchase" required >
+              <input type="text" class="form-control" id="purchaseDate" placeholder="mm/dd/yyyy" ng-model="formData.purchase" required >
             </div>
-          <label for="expirationm" class="col-sm-2 control-label">Expiration Date</label>
+          <label for="expiration" class="col-sm-2 control-label">Expiration Date</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" id="expiration" placeholder="Expiration" ng-model="formData.expiration" required >
+              <input type="text" class="form-control" id="expiration" placeholder="mm/dd/yyyy" ng-model="formData.expiration" required >
             </div>
         </div>
         <button id="add-item" type="submit" ng-click="createGrocery()">Add</button>
@@ -72,6 +73,9 @@
           <th>
             Expiration Date
           </th>
+          <th>
+            Remove
+          </th>
         </tr>
         <tr ng-repeat="grocery in groceries">
           <td>{{ grocery.text }}</td>
@@ -79,6 +83,9 @@
           <td>{{ grocery.quantity }}</td>
           <td>{{ grocery.purchase | date: format: short}}</td>
           <td>{{ grocery.expiration | date: format: short }}</td>
+          <td>
+            <input type="button" ng-click= "deleteGrocery(grocery._id)" value="X" />
+          </td>
         </tr>
       </table>
     </div>

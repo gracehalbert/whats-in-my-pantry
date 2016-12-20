@@ -25,7 +25,8 @@ var pantryController = function($scope, $http) {
   };
 
   $scope.deleteGrocery = function(id) {
-    $http.delete('/api/groceries' + id)
+    console.log(id);
+    $http.delete('/api/groceries/' + id)
       .success(function(data) {
         $scope.groceries = data;
       })
