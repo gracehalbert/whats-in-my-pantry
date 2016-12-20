@@ -4,10 +4,10 @@ var mongoose = require('mongoose');
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
-var database = process.env.URI;
+var uri = process.env.MONGODB_URI;
 var port = process.env.PORT || 3000;
 
-mongoose.connect(database);
+mongoose.connect(uri);
 
 app.use(express.static(__dirname + '/public'));
 app.use(morgan('dev'));
