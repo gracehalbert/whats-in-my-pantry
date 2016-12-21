@@ -5,5 +5,6 @@ module.exports = mongoose.model('Grocery', {
   size: String,
   quantity: Number,
   purchase: Date,
-  expiration: Date
+  expiration: Date,
+  user: String
 });

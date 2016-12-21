@@ -16,7 +16,8 @@ module.exports = function(app) {
       size: req.body.size,
       quantity: req.body.quantity,
       purchase: req.body.purchase,
-      expiration: req.body.expiration
+      expiration: req.body.expiration,
+      user: req.body.user
     }, function(err, groceries) {
       if (err) { res.send(err); }
       Grocery.find(function(err, groceries) {
