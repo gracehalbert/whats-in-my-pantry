@@ -43,10 +43,31 @@ module.exports = function(app) {
     User.create({
       username: req.body.username,
       password: req.body.password
-    }, function(err) {
-      if (err) { res.send(err); }
+    }, function(err, res) {
+      if (err) {
+        res.send(err);
+      }
     });
+    // .then(res.redirect('/#/list'));
   });
+
+//   var username = req.body.username;
+// var password = req.body.password;
+// User.findOne({username: username}, function(error, user) {
+//   if (!user) {
+//     var newUser = new User({
+//       username: username,
+//       password: password
+//     });
+//     newUser.save(function(error) {
+//       if (error) console.log(error);
+//       util.createSession(req, res, newUser);
+//     });
+//   } else {
+//     console.log('Account already exists');
+//     res.redirect('/signup');
+//   }
+// });
 
   app.post('/api/login', function(req, res) {
     User.findOne({username: req.body.username})
@@ -55,7 +76,7 @@ module.exports = function(app) {
         console.log('no user exists with this username');
       } else {
         if (user.password === req.body.password) {
-          res.redirect('/list');
+          res.redirect('/#/list');
         }
       }
     });
