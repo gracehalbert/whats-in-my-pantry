@@ -52,23 +52,6 @@ module.exports = function(app) {
     // .then(res.redirect('/#/list'));
   });
 
-//   var username = req.body.username;
-// var password = req.body.password;
-// User.findOne({username: username}, function(error, user) {
-//   if (!user) {
-//     var newUser = new User({
-//       username: username,
-//       password: password
-//     });
-//     newUser.save(function(error) {
-//       if (error) console.log(error);
-//       util.createSession(req, res, newUser);
-//     });
-//   } else {
-//     console.log('Account already exists');
-//     res.redirect('/signup');
-//   }
-// });
 
   app.post('/api/login', function(req, res) {
     User.findOne({username: req.body.username})

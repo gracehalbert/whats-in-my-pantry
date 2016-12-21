@@ -33,9 +33,9 @@ var pantryList = angular.module('pantryList', ['ngRoute'])
 
 
 
-var pantryController = function($scope, $http) {
+var pantryController = function($scope, $http, $rootScope) {
   $scope.formData = {};
-  $scope.formData.user = $rootScope.loggedInUser; 
+  $scope.formData.user = $rootScope.loggedInUser;
   $http.get('/api/groceries')
     .success(function(data) {
       $scope.groceries = data;
