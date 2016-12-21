@@ -1,0 +1,69 @@
+<div id='list-container' ng-controller="pantryController">
+  <div class="container">
+    <h3>Add Items to My Pantry</h3>
+  </div>
+<div id="grocery-form">
+  <form class="form-horizontal">
+    <div class="form-group">
+      <label for="groceryItem" class="col-sm-2 control-label">Grocery Item</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="groceryItem" placeholder="Item" ng-model="formData.text" required >
+        </div>
+      <label for="size" class="col-sm-2 control-label">Size</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="size" placeholder="Size" ng-model="formData.size" required >
+        </div>
+      <label for="quantity" class="col-sm-2 control-label">Quantity</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="quantity" placeholder="Quantity" ng-model="formData.quantity" required >
+        </div>
+      <label for="purchaseDate" class="col-sm-2 control-label">Purchase Date</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="purchaseDate" placeholder="mm/dd/yyyy" ng-model="formData.purchase" required >
+        </div>
+      <label for="expiration" class="col-sm-2 control-label">Expiration Date</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="expiration" placeholder="mm/dd/yyyy" ng-model="formData.expiration" required >
+        </div>
+    </div>
+    <button id="add-item" type="submit" ng-click="createGrocery()">Add</button>
+  </form>
+</div>
+<div class="container">
+  <h3>Items in My Pantry</h3>
+</div>
+<div id="pantry-list">
+  <table class="table table-bordered">
+    <tr>
+      <th>
+        Item
+      </th>
+      <th>
+        Size
+      </th>
+      <th>
+        Quantity
+      </th>
+      <th>
+        Purchase Date
+      </th>
+      <th>
+        Expiration Date
+      </th>
+      <th>
+        Remove
+      </th>
+    </tr>
+    <tr ng-repeat="grocery in groceries">
+      <td>{{ grocery.text }}</td>
+      <td>{{ grocery.size }}</td>
+      <td>{{ grocery.quantity }}</td>
+      <td>{{ grocery.purchase | date: format: short}}</td>
+      <td>{{ grocery.expiration | date: format: short }}</td>
+      <td>
+        <input type="button" ng-click= "deleteGrocery(grocery._id)" value="X" />
+      </td>
+    </tr>
+  </table>
+</div>
+</div>
